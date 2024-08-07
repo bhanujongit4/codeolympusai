@@ -38,7 +38,7 @@ const FAQComponent = () => {
     },
     {
       question: "Why Should We Hire You ?",
-      answer: "When You are looking to scale your bussiness, Hiring a web devloper is often not enough. You need a dedicated person to contribute in your bussiness. Also to be better than the cheap no code solutions, Astronomically more affordable than big tech companies, You need to put your serach on a halt and start working with me."
+      answer: "When You are looking to scale your bussiness, Hiring a web devloper is often not enough. You need a dedicated person to contribute to your bussiness. Also to be better than the cheap no code solutions, Astronomically more affordable than big tech companies, You need to put your search on a halt and start working with me."
     },
     {
       question: "Do you take on freelance projects?",
