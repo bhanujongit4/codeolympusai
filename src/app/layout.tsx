@@ -17,7 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <link rel="icon" href="images/logo-no-background.png" type="image/png" />
       </head>
-      <body className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+       <body className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
         <ThemeProvider>
           <Header />
           <main className="container mx-auto ">
