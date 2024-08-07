@@ -12,10 +12,11 @@ const HomePage = () => {
   return (
     <div className="bg-white dark:bg-black min-h-screen relative">
       <main className="relative">
-        <div className="absolute inset-0 w-full h-full hidden sm:block">
+         {/* Desktop background */}
+         <div className="absolute inset-0 w-full h-full hidden sm:block">
           <Image
             src="/images/bg-7.png"
-            alt="."
+            alt="Desktop background"
             layout="fill"
             objectFit="cover"
             objectPosition="center"
@@ -23,6 +24,11 @@ const HomePage = () => {
             priority
             className="w-full h-full"
           />
+        </div>
+        {/* Mobile background */}
+        <div className="absolute inset-0 w-full h-full sm:hidden">
+        <div className="bg-cover bg-center h-screen" style={{ backgroundImage: "url('images/bg-7.png')" }}>
+    </div>
         </div>
         <div className="relative max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
