@@ -66,7 +66,7 @@ const Blogs = () => {
           ) : (
             <div className="grid grid-cols-1 gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
               {blogs.map((blog) => (
-                <div key={blog.id} className="bg-gray-100 dark:bg-zinc-950 rounded-lg shadow-lg overflow-hidden">
+                <div key={blog.id} className="bg-gray-100 dark:bg-zinc-900 rounded-lg shadow-lg overflow-hidden">
                   <div className="relative">
                     <Image 
                       className="object-cover object-center w-full h-64 lg:h-80"
