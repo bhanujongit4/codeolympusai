@@ -21,12 +21,12 @@ const ContactPage = () => {
                 className="w-48 h-48 rounded-full mb-4"
               />
               <p className="text-lg text-black dark:text-gray-200 mb-4">
-                I'm a passionate developer with expertise in React, Node.js, and cloud technologies. 
+                I'm a passionate developer with expertise in Next, React, Node.js, and cloud technologies. 
                 With years of experience, I love creating efficient and scalable web applications 
                 that solve real-world problems.
               </p>
               <p className="text-lg text-black dark:text-gray-200">
-                When I'm not coding, you can find me hiking in the mountains or experimenting with new recipes in the kitchen. Why are you reading this AI generated text though?
+                You can find me watching philosophical lectures on YouTube or experimenting with poetry on my terrace when I'm not coding.
               </p>
             </div>
 
