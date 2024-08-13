@@ -45,7 +45,7 @@ const HomePage = () => {
               Web Developer & Designer
             </h1>
             <p className="mt-3 max-w-xl mx-auto text-2xl text-black dark:text-white sm:text-white">
-              I am Aarohi, I create stunning websites that drive results.
+              I am Aarohi, I create stunning websites that drive <span className="text-yellow-500">results</span>.
               <br></br>
               <br></br>
             </p>
