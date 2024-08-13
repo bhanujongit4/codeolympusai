@@ -44,8 +44,8 @@ const HomePage = () => {
             <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl lg:text-5xl">
               Web Developer & Designer
             </h1>
-            <p className="mt-3 max-w-xl mx-auto text-2xl text-black dark:text-white sm:text-white">
-              I am Aarohi, I create stunning websites that drive <span className="text-yellow-500">results</span>.
+            <p className="mt-3 max-w-xl mx-auto text-2xl text-black dark:text-white">
+              I am Aarohi, I create stunning websites that drive <span className="text-yellow-500 dark:text-white">results</span>.
               <br></br>
               <br></br>
             </p>
