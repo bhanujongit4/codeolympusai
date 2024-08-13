@@ -61,7 +61,7 @@ const Projects = () => {
         ) : (
           <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
-              <div key={project.id} className="bg-gray-100 dark:bg-black rounded-lg overflow-hidden shadow-md">
+              <div key={project.id} className="bg-gray-100 dark:bg-zinc-900 rounded-lg overflow-hidden shadow-md">
                 <div className="relative">
                   <img className="object-cover object-center w-full h-64 lg:h-80" src={project.imageUrl} alt={project.title} />
                 </div>
