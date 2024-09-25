@@ -48,6 +48,8 @@ const HomePage = () => {
               I am Aarohi, I create stunning websites For You
               <br></br>
               <br></br>
+              <br></br>
+              <br></br>
             </p>
             <div className="mt-5 flex flex-col space-y-3 sm:flex-row sm:justify-center sm:space-x-3 sm:space-y-0">
               <Link href="/contact" className="rounded-md shadow w-full sm:w-auto">
