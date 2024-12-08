@@ -42,10 +42,10 @@ const HomePage = () => {
         <div className="relative max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl lg:text-5xl">
-              Web Developer & Designer
+              CodeOlympus AI
             </h1>
             <p className="mt-3 max-w-xl mx-auto text-2xl text-black dark:text-white">
-              I am Aarohi, I create stunning websites.
+              Web Development | AI Solutions | SEO Expertise
               <br></br>
               <br></br>
               <br></br>
@@ -59,7 +59,7 @@ const HomePage = () => {
               </Link>
               <Link href="/projects" className="rounded-md shadow w-full sm:w-auto">
                 <span className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-yellow-500 bg-white hover:bg-gray-50 dark:text-yellow-400 dark:bg-black dark:hover:bg-black">
-                  View my work
+                  View our work
                 </span>
               </Link>
             </div>
