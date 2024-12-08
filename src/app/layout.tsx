@@ -7,8 +7,8 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 export const metadata = {
-  title: "Aarohi Portfolio",
-  description: "This My Portfolio",
+  title: "CodeOlympusAi",
+  description: "Professional web development services with AI-powered solutions and SEO expertise. Elevate your online presence with custom websites tailored to your needs. Contact us to bring your vision to life!",
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
