@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+<<<<<<< HEAD
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
@@ -13,6 +14,11 @@ export default function Header() {
   if (pathname === '/' || pathname === '/home') {
     return null;
   }
+=======
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+>>>>>>> 2fc8df96dafceff2e8f5a9c55f8f12ed43c9509d
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -74,4 +80,8 @@ export default function Header() {
       )}
     </header>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2fc8df96dafceff2e8f5a9c55f8f12ed43c9509d
