@@ -7,71 +7,71 @@ import ThemeToggle from "../components/ThemeToggle";
 // ─── DATA — fill these in ─────────────────────────────────────────────────────
 
 const PROFILE = {
-  name: "Your Name",
-  title: "SWE · ML/AI · Full Stack",
+  name: "Aarohi Bhanuj Chowdhary",
+  title: "Software Engineer ? Full Stack ? AI",
   university: "Netaji Subhas University of Technology",
-  bio: "I build things that think, scale, and ship. NSUT student seeking internships in ML/AI, Full Stack, and Software Engineering. I also freelance — and clients keep coming back.",
-  email: "you@nsut.ac.in",
-  resumeUrl: "#",         // ← your resume PDF link
-  avatar: "",             // ← your photo URL
+  bio: "I am a developer focused on building fast, scalable web products with modern frontend, backend, and AI-assisted workflows. I am currently open to internship and freelance opportunities.",
+  email: "bhanujchowdhary@gmail.com",
+  resumeUrl: "/Resume-Aarohi.pdf",
+  avatar: "/images/profile.jpg",
   socials: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    leetcode: "https://leetcode.com/yourusername",
+    github: "https://github.com/bhanujongit4/",
+    linkedin: "https://www.linkedin.com/in/aarohi-bhanuj-chowdhary-43636420a",
+    twitter: "https://www.instagram.com/bhanujchowdhary?igsh=Ynh6anEzMWpycm0=",
+    leetcode: "#",
   },
 };
 
 const STATS = [
-  { value: "10+", label: "Projects Built" },
-  { value: "5+", label: "Freelance Clients" },
-  { value: "3rd", label: "Year at NSUT" },
-  { value: "Open", label: "To Internships" },
+  { value: "5", label: "Public Builds Linked" },
+  { value: "4", label: "Live Project Demos" },
+  { value: "NSUT", label: "Based in New Delhi" },
+  { value: "Open", label: "Internships & Freelance" },
 ];
 
 const TECH_PROJECTS = [
   {
     id: 1,
-    title: "Project One",
-    tags: ["Machine Learning", "PyTorch", "Python"],
-    description: "A neural architecture trained on real-world data. Built from scratch, deployed in production.",
-    image: "",  // ← image URL
-    github: "#",
-    live: "#",
-    year: "2025",
+    title: "Aarohi Sells Something",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    description: "A polished web product deployed on Vercel, focused on conversion-first UI and performance.",
+    image: "",
+    github: "https://github.com/bhanujongit4/",
+    live: "https://aarohisellssomething.vercel.app/",
+    year: "2026",
     accent: "#3B82F6",
   },
   {
     id: 2,
-    title: "Project Two",
-    tags: ["Next.js", "TypeScript", "PostgreSQL"],
-    description: "Full-stack web app with auth, dashboards, and a clean API layer. Fast and maintainable.",
+    title: "A Disasterous Stock App",
+    tags: ["React", "APIs", "Data"],
+    description: "A stock-focused application with a live deployed demo and market-oriented interface.",
     image: "",
-    github: "#",
-    live: "#",
-    year: "2025",
+    github: "https://github.com/bhanujongit4/",
+    live: "https://adisasterousstockapp.vercel.app/",
+    year: "2026",
     accent: "#8B5CF6",
   },
   {
     id: 3,
-    title: "Project Three",
-    tags: ["Computer Vision", "OpenCV", "Flask"],
-    description: "Real-time object detection pipeline. Runs on edge hardware, deployed via REST.",
+    title: "Good Morning India Holidays",
+    tags: ["Business Website", "Frontend", "Deployment"],
+    description: "Live production website delivered for a travel business with custom branding and UX.",
     image: "",
-    github: "#",
-    live: "#",
-    year: "2024",
+    github: "https://github.com/bhanujongit4/",
+    live: "https://www.goodmorningindiaholidays.com/",
+    year: "2025",
     accent: "#10B981",
   },
   {
     id: 4,
-    title: "Project Four",
-    tags: ["React", "Node.js", "MongoDB"],
-    description: "A knowledge management system with search, tagging, and collaborative editing.",
+    title: "RAG but Useful",
+    tags: ["RAG", "LLM", "Web App"],
+    description: "A practical retrieval-augmented generation app designed to make long-form context usable.",
     image: "",
-    github: "#",
-    live: "#",
-    year: "2024",
+    github: "https://github.com/bhanujongit4/",
+    live: "https://ragbutuseful.vercel.app/",
+    year: "2026",
     accent: "#F97316",
   },
 ];
@@ -79,50 +79,50 @@ const TECH_PROJECTS = [
 const FREELANCE_PROJECTS = [
   {
     id: 1,
-    title: "E-Commerce Overhaul",
-    client: "Confidential",
-    tags: ["Next.js", "UI/UX", "Payments"],
-    description: "Rebuilt a client's storefront from the ground up. 3× conversion rate post-launch.",
-    deliverables: ["Custom Next.js frontend", "Payment integration", "CMS setup"],
+    title: "Travel Website Delivery",
+    client: "Good Morning India Holidays",
+    tags: ["Client Work", "Design", "Deployment"],
+    description: "Built and shipped a complete branded website for a travel business and published it live.",
+    deliverables: ["Website design", "Responsive frontend", "Production deployment"],
     image: "",
-    year: "2024",
+    year: "2025",
     status: "Delivered",
     accent: "#F59E0B",
   },
   {
     id: 2,
-    title: "AI Analytics Dashboard",
-    client: "Startup (NDA)",
-    tags: ["React", "ML", "Data Viz"],
-    description: "Dashboard that surfaces model outputs in readable charts. Client called it magic.",
-    deliverables: ["React frontend", "REST API", "Model integration"],
+    title: "Portfolio Product Build",
+    client: "Personal Brand",
+    tags: ["Next.js", "Branding", "UI/UX"],
+    description: "Built a conversion-led personal product site and deployed it with a clean visual system.",
+    deliverables: ["Custom UI", "Component system", "Vercel deployment"],
     image: "",
-    year: "2025",
+    year: "2026",
     status: "Delivered",
     accent: "#3B82F6",
   },
   {
     id: 3,
-    title: "Portfolio Systems",
-    client: "3 Clients",
-    tags: ["Design", "Frontend", "SEO"],
-    description: "Bespoke portfolio websites. Each one designed to make the client look undeniable.",
-    deliverables: ["Custom design", "CMS", "SEO"],
+    title: "RAG Utility App",
+    client: "Applied AI Project",
+    tags: ["RAG", "AI", "Frontend"],
+    description: "Developed and deployed an applied AI project centered on practical retrieval workflows.",
+    deliverables: ["RAG flow", "Web interface", "Live deployment"],
     image: "",
-    year: "2024-25",
+    year: "2026",
     status: "Ongoing",
     accent: "#10B981",
   },
 ];
 
 const SKILLS = [
-  { category: "Languages", items: ["Python", "TypeScript", "JavaScript", "C++", "SQL"] },
-  { category: "AI / ML", items: ["PyTorch", "TensorFlow", "scikit-learn", "HuggingFace", "LangChain"] },
-  { category: "Full Stack", items: ["Next.js", "React", "Node.js", "PostgreSQL", "MongoDB"] },
-  { category: "Tools", items: ["Git", "Docker", "AWS", "Vercel", "Linux"] },
+  { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "SQL", "C++"] },
+  { category: "AI / ML", items: ["PyTorch", "Gemini", "LLM Workflows", "RAG", "Prompt Engineering"] },
+  { category: "Full Stack", items: ["Next.js", "React", "Node.js", "Firebase", "MongoDB"] },
+  { category: "Tools", items: ["Git", "Docker", "Vercel", "PostgreSQL", "Tailwind CSS"] },
 ];
 
-// ─── COMPONENT ────────────────────────────────────────────────────────────────
+// --- COMPONENT ---
 
 export default function Portfolio() {
   const [tab, setTab] = useState<"tech" | "freelance">("tech");
@@ -738,9 +738,9 @@ export default function Portfolio() {
             <div className="pf-about-table">
               {[
                 ["University", "NSUT, New Delhi"],
-                ["Seeking", "SWE · ML/AI · Full Stack Intern"],
-                ["Available", "Immediately · Summer 2025"],
-                ["Freelancing", "Open to new projects"],
+                ["Seeking", "Software Engineering / Full Stack / AI Roles"],
+                ["Available", "Actively looking · 2026"],
+                ["Freelancing", "Open to selected projects"],
                 ["Email", PROFILE.email],
               ].map(([k, v]) => (
                 <div key={k} className="pf-about-row">
@@ -868,7 +868,7 @@ export default function Portfolio() {
       {/* FOOTER */}
       <footer className="pf-footer">
         <div className="pf-footer-name">{PROFILE.name}</div>
-        <div className="pf-footer-copy">NSUT · New Delhi · 2025</div>
+        <div className="pf-footer-copy">NSUT · New Delhi · {new Date().getFullYear()}</div>
         <div className="pf-footer-links">
           {[["About","about"],["Projects","projects"],["Skills","skills"],["Contact","contact"]].map(([l,id]) => (
             <span key={id} className="pf-footer-link" onClick={() => go(id)}>{l}</span>

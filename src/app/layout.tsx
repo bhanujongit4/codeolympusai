@@ -1,5 +1,4 @@
 import { ThemeProvider } from './components/ThemeContext';
-import Header from './components/Header';
 import './globals.css';
 import { ReactNode } from 'react';
 
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
        <body className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
         <ThemeProvider>
-          <Header />
           <main className="container mx-auto ">
             {children}
           </main>
