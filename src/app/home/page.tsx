@@ -1,75 +1,54 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Download, Github, Linkedin, Twitter, ExternalLink, Menu, X } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Instagram, ExternalLink, Menu, X } from "lucide-react";
 import ThemeToggle from "../components/ThemeToggle";
 
 // ─── DATA — fill these in ─────────────────────────────────────────────────────
 
 const PROFILE = {
   name: "Aarohi Bhanuj Chowdhary",
-  title: "Software Engineer ? Full Stack ? AI",
+  title: "Full-Stack Engineer | ML + AI Systems",
   university: "Netaji Subhas University of Technology",
-  bio: "I am a developer focused on building fast, scalable web products with modern frontend, backend, and AI-assisted workflows. I am currently open to internship and freelance opportunities.",
+  bio: "Full-stack engineering student with production experience across ML pipelines, data-driven web platforms, and real-world client deployments, with a focus on reliability, performance, and end-to-end ownership.",
   email: "bhanujchowdhary@gmail.com",
   resumeUrl: "/Resume-Aarohi.pdf",
   avatar: "/images/profile.jpg",
   socials: {
     github: "https://github.com/bhanujongit4/",
     linkedin: "https://www.linkedin.com/in/aarohi-bhanuj-chowdhary-43636420a",
-    twitter: "https://www.instagram.com/bhanujchowdhary?igsh=Ynh6anEzMWpycm0=",
-    leetcode: "#",
+    instagram: "https://www.instagram.com/bhanujchowdhary?igsh=Ynh6anEzMWpycm0=",
   },
 };
 
-const STATS = [
-  { value: "5", label: "Public Builds Linked" },
-  { value: "4", label: "Live Project Demos" },
-  { value: "NSUT", label: "Based in New Delhi" },
-  { value: "Open", label: "Internships & Freelance" },
-];
 
 const TECH_PROJECTS = [
   {
     id: 1,
-    title: "Aarohi Sells Something",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    description: "A polished web product deployed on Vercel, focused on conversion-first UI and performance.",
-    image: "",
-    github: "https://github.com/bhanujongit4/",
-    live: "https://aarohisellssomething.vercel.app/",
-    year: "2026",
-    accent: "#3B82F6",
-  },
-  {
-    id: 2,
-    title: "A Disasterous Stock App",
-    tags: ["React", "APIs", "Data"],
-    description: "A stock-focused application with a live deployed demo and market-oriented interface.",
-    image: "",
-    github: "https://github.com/bhanujongit4/",
+    title: "IN$JAM - AI Stock Intelligence Terminal",
+    tags: ["TypeScript", "FastAPI", "Docker"],
+    description: "Production-grade stock intelligence terminal with ML-driven signal pipelines, 21 technical indicators, JWT auth, and Neon/Postgres-backed watchlists.",
+    image: "/images/engineering/adisasterousstockapp.png",
     live: "https://adisasterousstockapp.vercel.app/",
     year: "2026",
     accent: "#8B5CF6",
   },
   {
-    id: 3,
-    title: "Good Morning India Holidays",
-    tags: ["Business Website", "Frontend", "Deployment"],
-    description: "Live production website delivered for a travel business with custom branding and UX.",
-    image: "",
-    github: "https://github.com/bhanujongit4/",
-    live: "https://www.goodmorningindiaholidays.com/",
+    id: 2,
+    title: "DebSoc NSIT Platform",
+    tags: ["Next.js", "Supabase", "SEO"],
+    description: "Built a high-conversion website and admin suite with Lighthouse 96 (Best Practices) and 95 (SEO), supporting lead generation and event operations.",
+    image: "/images/engineering/debsoc.png",
+    live: "https://debsocnsut.in",
     year: "2025",
     accent: "#10B981",
   },
   {
-    id: 4,
-    title: "RAG but Useful",
-    tags: ["RAG", "LLM", "Web App"],
-    description: "A practical retrieval-augmented generation app designed to make long-form context usable.",
-    image: "",
-    github: "https://github.com/bhanujongit4/",
+    id: 3,
+    title: "Emberline",
+    tags: ["RAG", "Pinecone", "Ollama"],
+    description: "AI-driven RAG app for querying PDFs, analyzing GitHub repos, summarizing commit diffs, and validating code changes against stored engineering standards.",
+    image: "/images/engineering/ragbutuseful.png",
     live: "https://ragbutuseful.vercel.app/",
     year: "2026",
     accent: "#F97316",
@@ -79,48 +58,45 @@ const TECH_PROJECTS = [
 const FREELANCE_PROJECTS = [
   {
     id: 1,
-    title: "Travel Website Delivery",
+    title: "Good Morning India Holidays",
     client: "Good Morning India Holidays",
     tags: ["Client Work", "Design", "Deployment"],
-    description: "Built and shipped a complete branded website for a travel business and published it live.",
-    deliverables: ["Website design", "Responsive frontend", "Production deployment"],
-    image: "",
+    description: "Delivered a full-stack travel booking platform with an admin panel, inquiry pipeline, and SEO-optimized SSR pages for a Delhi-based tour operator.",
+    deliverables: ["Booking platform", "Admin CMS", "SEO-ready SSR pages"],
+    image: "/images/freelance/goodmorningindia.png",
+    live: "https://www.goodmorningindiaholidays.com/",
     year: "2025",
     status: "Delivered",
     accent: "#F59E0B",
   },
   {
     id: 2,
-    title: "Portfolio Product Build",
-    client: "Personal Brand",
+    title: "Turning Point",
+    client: "Turning Point",
     tags: ["Next.js", "Branding", "UI/UX"],
-    description: "Built a conversion-led personal product site and deployed it with a clean visual system.",
-    deliverables: ["Custom UI", "Component system", "Vercel deployment"],
-    image: "",
+    description: "Architected the institute web platform using Next.js, improving Core Web Vitals by 20 percent via SSR, asset minification, and image optimization.",
+    deliverables: ["SSR architecture", "Performance optimization", "Production deployment"],
+    image: "/images/freelance/turningpoint.png",
+    live: "https://turningpointeducation.in",
     year: "2026",
     status: "Delivered",
     accent: "#3B82F6",
   },
   {
     id: 3,
-    title: "RAG Utility App",
-    client: "Applied AI Project",
-    tags: ["RAG", "AI", "Frontend"],
-    description: "Developed and deployed an applied AI project centered on practical retrieval workflows.",
-    deliverables: ["RAG flow", "Web interface", "Live deployment"],
-    image: "",
+    title: "Vista Vision Productions",
+    client: "Vista Vision Productions",
+    tags: ["Client Work", "Branding", "Frontend"],
+    description: "Client-facing web delivery focused on visual branding, clean UX structure, and deployment-ready implementation.",
+    deliverables: ["Brand-aligned UI", "Responsive frontend", "Deployment setup"],
+    image: "/images/freelance/vistavissions.png",
+    live: "https://vistavisionproductions.vercel.app",
     year: "2026",
     status: "Ongoing",
     accent: "#10B981",
   },
 ];
 
-const SKILLS = [
-  { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "SQL", "C++"] },
-  { category: "AI / ML", items: ["PyTorch", "Gemini", "LLM Workflows", "RAG", "Prompt Engineering"] },
-  { category: "Full Stack", items: ["Next.js", "React", "Node.js", "Firebase", "MongoDB"] },
-  { category: "Tools", items: ["Git", "Docker", "Vercel", "PostgreSQL", "Tailwind CSS"] },
-];
 
 // --- COMPONENT ---
 
@@ -191,7 +167,7 @@ export default function Portfolio() {
           letter-spacing: -.4px; color: var(--black); text-decoration: none;
           display: flex; align-items: center; gap: 7px;
         }
-        .pf-logo-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; }
+        .pf-logo-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
         .pf-nav-links { display: flex; gap: 28px; list-style: none; }
         .pf-nav-links span {
           font-size: 14px; color: var(--gray-700); cursor: pointer;
@@ -260,7 +236,7 @@ export default function Portfolio() {
           margin-bottom: 28px; position: relative;
         }
         .pf-badge-dot {
-          width: 6px; height: 6px; background: var(--yellow); border-radius: 50%;
+          width: 6px; height: 6px; background: #22c55e; border-radius: 50%;
           animation: pulse-dot 2s ease-in-out infinite;
         }
         @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
@@ -518,8 +494,8 @@ export default function Portfolio() {
         }
         .dark .pf-hero-bg {
           background:
-            radial-gradient(ellipse 700px 500px at 50% -80px, rgba(245,158,11,.16) 0%, transparent 70%),
-            radial-gradient(ellipse 400px 300px at 80% 60%, rgba(245,158,11,.08) 0%, transparent 60%),
+            radial-gradient(ellipse 700px 500px at 50% -80px, rgba(34,197,94,.18) 0%, transparent 70%),
+            radial-gradient(ellipse 400px 300px at 80% 60%, rgba(22,163,74,.10) 0%, transparent 60%),
             linear-gradient(180deg, #0a0a0b 0%, #000 100%);
         }
         .dark .pf-nav.on {
@@ -557,8 +533,7 @@ export default function Portfolio() {
         .dark .pf-stats,
         .dark .pf-card,
         .dark .pf-freelance-cta,
-        .dark .pf-mobile-menu,
-        .dark .pf-tab-active {
+        .dark .pf-mobile-menu {
           background: #111113;
         }
         .dark .pf-projects-bg {
@@ -577,6 +552,11 @@ export default function Portfolio() {
         .dark .pf-btn-outline,
         .dark .pf-theme-toggle button {
           border-color: rgba(255,255,255,.12);
+        }
+        .dark .pf-tab-active {
+          color: #dcfce7;
+          background: linear-gradient(180deg, rgba(34,197,94,.22) 0%, rgba(22,163,74,.12) 100%);
+          box-shadow: 0 0 0 1px rgba(34,197,94,.45), 0 0 18px rgba(34,197,94,.18);
         }
         .dark .pf-tab-inactive { color: #a1a1aa; }
         .dark .pf-tab-inactive:hover { color: #f5f5f5; }
@@ -605,6 +585,7 @@ export default function Portfolio() {
           background: rgba(255,255,255,.03);
         }
         .dark .pf-social { color: #a1a1aa; }
+        .dark .pf-freelance-cta-text strong { color: #ffffff; }
         .dark .pf-social:hover {
           border-color: rgba(255,255,255,.26);
           background: rgba(255,255,255,.02);
@@ -614,7 +595,7 @@ export default function Portfolio() {
         .dark .pf-mobile-menu span {
           color: #d4d4d8;
         }
-        .dark .pf-mobile-menu span:hover { color: #fbbf24; }
+        .dark .pf-mobile-menu span:hover { color: #4ade80; }
         .dark .pf-stat:hover,
         .dark .pf-card:hover { background: #17171b; }
         .dark .pf-skill-pill:hover {
@@ -628,13 +609,16 @@ export default function Portfolio() {
           border: 1px solid rgba(255,255,255,.14);
         }
         .dark .pf-badge {
-          background: rgba(251,191,36,.12);
-          border-color: rgba(251,191,36,.28);
-          color: #fcd34d;
+          background: rgba(34,197,94,.12);
+          border-color: rgba(34,197,94,.32);
+          color: #86efac;
         }
         .dark .pf-cta {
           background: linear-gradient(180deg, #09090b 0%, #000000 100%);
           border-top: 1px solid rgba(255,255,255,.08);
+        }
+        .dark .pf-cta::before {
+          background: radial-gradient(ellipse, rgba(34,197,94,.18) 0%, transparent 70%);
         }
         .dark .pf-cta-sub { color: rgba(255,255,255,.62); }
       `}</style>
@@ -646,7 +630,7 @@ export default function Portfolio() {
           {PROFILE.name.split(" ")[0]}
         </a>
         <ul className="pf-nav-links">
-          {[["About", "about"], ["Projects", "projects"], ["Skills", "skills"], ["Contact", "contact"]].map(([l, id]) => (
+          {[["About", "about"], ["Projects", "projects"], ["Contact", "contact"]].map(([l, id]) => (
             <li key={id}><span onClick={() => go(id)}>{l}</span></li>
           ))}
         </ul>
@@ -655,7 +639,7 @@ export default function Portfolio() {
             <ThemeToggle />
           </div>
           <a href={PROFILE.resumeUrl} download className="pf-btn pf-btn-dark">
-            <Download size={14} /> Résumé
+            <Download size={14} /> Resume
           </a>
           <button className="pf-hamburger" onClick={() => setMenuOpen(true)}>
             <Menu size={20} />
@@ -666,7 +650,7 @@ export default function Portfolio() {
       {menuOpen && (
         <div className="pf-mobile-menu">
           <button className="pf-close-btn" onClick={() => setMenuOpen(false)}><X size={22} /></button>
-          {[["About", "about"], ["Projects", "projects"], ["Skills", "skills"], ["Contact", "contact"]].map(([l, id]) => (
+          {[["About", "about"], ["Projects", "projects"], ["Contact", "contact"]].map(([l, id]) => (
             <span key={id} onClick={() => go(id)}>{l}</span>
           ))}
         </div>
@@ -690,16 +674,8 @@ export default function Portfolio() {
             Get in Touch
           </button>
           <a href={PROFILE.resumeUrl} download className="pf-btn pf-btn-outline">
-            <Download size={14} /> Résumé
+            <Download size={14} /> Resume
           </a>
-        </div>
-        <div className="pf-stats pf-fade-5">
-          {STATS.map((s) => (
-            <div key={s.label} className="pf-stat">
-              <div className="pf-stat-val">{s.value}</div>
-              <div className="pf-stat-lbl">{s.label}</div>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -726,21 +702,19 @@ export default function Portfolio() {
               <div className="pf-socials">
                 <a href={PROFILE.socials.github} target="_blank" rel="noopener noreferrer" className="pf-social"><Github size={16} /></a>
                 <a href={PROFILE.socials.linkedin} target="_blank" rel="noopener noreferrer" className="pf-social"><Linkedin size={16} /></a>
-                <a href={PROFILE.socials.twitter} target="_blank" rel="noopener noreferrer" className="pf-social"><Twitter size={16} /></a>
-                <a href={PROFILE.socials.leetcode} target="_blank" rel="noopener noreferrer" className="pf-social" title="LeetCode">
-                  <span style={{fontFamily:"'Syne',sans-serif",fontSize:11,fontWeight:700}}>LC</span>
-                </a>
+                <a href={PROFILE.socials.instagram} target="_blank" rel="noopener noreferrer" className="pf-social"><Instagram size={16} /></a>
               </div>
               <a href={PROFILE.resumeUrl} download className="pf-btn pf-btn-dark" style={{width:"fit-content"}}>
-                <Download size={14} /> Download Résumé
+                <Download size={14} /> Download Resume
               </a>
             </div>
             <div className="pf-about-table">
               {[
-                ["University", "NSUT, New Delhi"],
-                ["Seeking", "Software Engineering / Full Stack / AI Roles"],
-                ["Available", "Actively looking · 2026"],
-                ["Freelancing", "Open to selected projects"],
+                ["Education", "B.Tech, Instrumentation and Control Engineering"],
+                ["University", "NSUT, New Delhi (Aug 2023 - Present)"],
+                ["Focus", "Full-Stack Engineering, AI/ML Systems"],
+                ["Available", "Internships and selected freelance projects"],
+                ["Mobile", "+91-9958994526"],
                 ["Email", PROFILE.email],
               ].map(([k, v]) => (
                 <div key={k} className="pf-about-row">
@@ -768,7 +742,7 @@ export default function Portfolio() {
           </div>
 
           {tab === "tech" && (
-            <div className="pf-grid-2">
+            <div className="pf-grid-3">
               {TECH_PROJECTS.map((p) => (
                 <div key={p.id} className="pf-card">
                   <div className="pf-card-img" style={{background:p.accent+"14"}}>
@@ -784,7 +758,6 @@ export default function Portfolio() {
                     <div className="pf-card-title">{p.title}</div>
                     <div className="pf-card-desc">{p.description}</div>
                     <div className="pf-card-links">
-                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="pf-card-link"><Github size={13} /> Code</a>
                       <a href={p.live} target="_blank" rel="noopener noreferrer" className="pf-card-link"><ExternalLink size={13} /> Live</a>
                     </div>
                   </div>
@@ -815,6 +788,9 @@ export default function Portfolio() {
                       <div className="pf-card-deliverables">
                         {p.deliverables.map(d => <div key={d} className="pf-card-deliverable">{d}</div>)}
                       </div>
+                      <div className="pf-card-links">
+                        <a href={p.live} target="_blank" rel="noopener noreferrer" className="pf-card-link"><ExternalLink size={13} /> Live</a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -832,25 +808,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section id="skills">
-        <div className="pf-section">
-          <p className="pf-section-label">The toolkit</p>
-          <h2 className="pf-section-title">Skills & Technologies</h2>
-          <p className="pf-section-sub">What I reach for when building — picked up through projects, not just courses.</p>
-          <div className="pf-skills-grid">
-            {SKILLS.map((g) => (
-              <div key={g.category}>
-                <div className="pf-skill-category">{g.category}</div>
-                <div className="pf-skill-pills">
-                  {g.items.map(s => <span key={s} className="pf-skill-pill">{s}</span>)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA / CONTACT */}
       <section id="contact" className="pf-cta">
         <h2 className="pf-cta-title">Let's build something great together.</h2>
@@ -860,7 +817,7 @@ export default function Portfolio() {
             Say hello <ArrowUpRight size={15} />
           </a>
           <a href={PROFILE.resumeUrl} download className="pf-btn" style={{background:"rgba(255,255,255,.1)",color:"white",border:"1.5px solid rgba(255,255,255,.15)"}}>
-            <Download size={14} /> Download Résumé
+            <Download size={14} /> Download Resume
           </a>
         </div>
       </section>
@@ -870,7 +827,7 @@ export default function Portfolio() {
         <div className="pf-footer-name">{PROFILE.name}</div>
         <div className="pf-footer-copy">NSUT · New Delhi · {new Date().getFullYear()}</div>
         <div className="pf-footer-links">
-          {[["About","about"],["Projects","projects"],["Skills","skills"],["Contact","contact"]].map(([l,id]) => (
+          {[["About","about"],["Projects","projects"],["Contact","contact"]].map(([l,id]) => (
             <span key={id} className="pf-footer-link" onClick={() => go(id)}>{l}</span>
           ))}
         </div>
@@ -878,4 +835,5 @@ export default function Portfolio() {
     </div>
   );
 }
+
 

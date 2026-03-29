@@ -53,7 +53,7 @@ const ContactPage = () => {
                 </a>
               </div>
               <div>
-                <a href="/Resume-Aarohi.pdf" download className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-400 dark:text-white dark:bg-yellow-550 dark:hover:bg-yellow-400">
+                <a href="/Aarohi-Resume.pdf" download className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-400 dark:text-white dark:bg-yellow-550 dark:hover:bg-yellow-400">
                   <FaDownload className="mr-2" />
                   Download Resume
                 </a>

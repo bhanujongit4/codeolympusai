@@ -1,22 +1,26 @@
 import { ThemeProvider } from './components/ThemeContext';
 import './globals.css';
 import { ReactNode } from 'react';
+import type { Metadata } from 'next';
 
 interface RootLayoutProps {
   children: ReactNode;
 }
-export const metadata = {
-  title: "CodeOlympusAi",
-  description: "Professional web development services with AI-powered solutions and SEO expertise. Elevate your online presence with custom websites tailored to your needs. Contact us to bring your vision to life!",
+export const metadata: Metadata = {
+  title: 'Aarohi Bhanuj Chowdhary | Portfolio',
+  description:
+    'Portfolio of Aarohi Bhanuj Chowdhary - Software Engineer focused on Full Stack and AI projects, internships, and freelance work.',
+  icons: {
+    icon: '/images/profile.jpg',
+    shortcut: '/images/profile.jpg',
+    apple: '/images/profile.jpg',
+  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-     <head>
-        <link rel="icon" href="/images/A (1).png" type="image/png" />
-      </head>
-       <body className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+      <body className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
         <ThemeProvider>
           <main className="container mx-auto ">
             {children}
