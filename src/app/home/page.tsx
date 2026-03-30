@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight, Download, Github, Linkedin, Instagram, ExternalLink, Menu, X } from "lucide-react";
 import ThemeToggle from "../components/ThemeToggle";
+import { GradientDots } from "../../components/ui/gradient-dots";
 
 // ─── DATA — fill these in ─────────────────────────────────────────────────────
 
@@ -13,6 +14,7 @@ const PROFILE = {
   bio: "Full-stack engineering student with production experience across ML pipelines, data-driven web platforms, and real-world client deployments, with a focus on reliability, performance, and end-to-end ownership.",
   email: "bhanujchowdhary@gmail.com",
   resumeUrl: "/Resume-Aarohi.pdf",
+  heroImage: "/images/aigen.png",
   avatar: "/images/profile.jpg",
   socials: {
     github: "https://github.com/bhanujongit4/",
@@ -101,7 +103,7 @@ const FREELANCE_PROJECTS = [
 // --- COMPONENT ---
 
 export default function Portfolio() {
-  const [tab, setTab] = useState<"tech" | "freelance">("tech");
+  const [tab, setTab] = useState<"tech" | "freelance">("freelance");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -216,46 +218,121 @@ export default function Portfolio() {
         /* HERO */
         .pf-hero {
           min-height: 100vh; padding: 130px 40px 80px;
-          display: flex; flex-direction: column; align-items: center;
-          justify-content: center; text-align: center; position: relative; overflow: hidden;
+          display: flex; align-items: center; justify-content: center;
+          position: relative; overflow: hidden;
         }
         .pf-hero-bg {
           position: absolute; inset: 0;
           /* ↓ drop in your bg image here */
           /* background-image: url('/your-hero-bg.jpg'); background-size: cover; background-position: center; */
           background:
-            radial-gradient(ellipse 700px 500px at 50% -80px, rgba(245,158,11,.09) 0%, transparent 70%),
-            radial-gradient(ellipse 400px 300px at 80% 60%, rgba(245,158,11,.04) 0%, transparent 60%),
+            radial-gradient(ellipse 1120px 760px at 50% -120px, rgba(245,158,11,.20) 0%, transparent 82%),
             var(--white);
         }
-        .pf-badge {
-          display: inline-flex; align-items: center; gap: 8px;
-          background: var(--yellow-bg); border: 1px solid var(--yellow-border);
-          border-radius: 100px; padding: 5px 14px;
-          font-size: 13px; font-weight: 500; color: #92400E;
-          margin-bottom: 28px; position: relative;
+        .pf-hero-layout {
+          width: min(1280px, 100%);
+          display: grid;
+          grid-template-columns: minmax(280px, 1fr) minmax(360px, 520px) minmax(240px, 1fr);
+          align-items: start;
+          gap: 36px;
+          position: relative;
+          z-index: 1;
         }
-        .pf-badge-dot {
-          width: 6px; height: 6px; background: #22c55e; border-radius: 50%;
-          animation: pulse-dot 2s ease-in-out infinite;
+        .pf-hero-left {
+          grid-column: 1;
+          text-align: left;
+          max-width: 460px;
+          justify-self: start;
+          padding-top: 46px;
         }
-        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+        .pf-hero-center {
+          grid-column: 2;
+          text-align: center;
+          justify-self: center;
+        }
+        .pf-hero-right {
+          grid-column: 3;
+          display: flex;
+          justify-content: flex-start;
+          justify-self: end;
+          width: 100%;
+          max-width: 320px;
+          padding-top: 46px;
+        }
+        .pf-hero-image-wrap {
+          width: min(500px, 100%);
+          aspect-ratio: 1 / 1;
+          justify-self: center;
+          border-radius: 0;
+          overflow: visible;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          background: transparent;
+        }
+        .pf-hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: drop-shadow(0 22px 36px rgba(0,0,0,.16));
+        }
+        .pf-hero-email {
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(18px, 2.2vw, 28px);
+          font-weight: 700;
+          letter-spacing: -0.3px;
+          line-height: 1.15;
+          color: var(--black);
+          margin-bottom: 16px;
+        }
         .pf-hero-name {
           font-family: 'Syne', sans-serif;
-          font-size: clamp(44px, 6.5vw, 88px);
+          font-size: clamp(40px, 5.8vw, 82px);
           font-weight: 800; letter-spacing: -3px; line-height: 1;
-          color: var(--black); margin-bottom: 20px; position: relative;
+          color: var(--black); margin-top: 16px; margin-bottom: 0; position: relative;
+        }
+        .pf-hero-name-highlight {
+          color: var(--black);
+          background: transparent;
+          padding: 0;
+          border-radius: 0;
         }
         .pf-hero-title {
           font-family: 'Syne', sans-serif; font-size: clamp(15px, 1.5vw, 19px);
-          font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
-          color: var(--gray-500); margin-bottom: 20px; position: relative;
+          font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+          color: var(--black); margin-bottom: 20px; position: relative;
         }
         .pf-hero-bio {
-          font-size: 17px; font-weight: 300; color: var(--gray-500);
-          max-width: 460px; margin: 0 auto 40px; line-height: 1.7; position: relative;
+          font-family: 'Syne', sans-serif;
+          font-size: 17px; font-weight: 500; color: var(--black);
+          max-width: 460px; margin: 0 0 40px; line-height: 1.7; position: relative;
         }
-        .pf-hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; position: relative; }
+        .pf-hero-extra {
+          font-family: 'Syne', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: .02em;
+          color: var(--black);
+          line-height: 1.6;
+          max-width: 440px;
+          margin: -20px 0 26px;
+        }
+        .pf-hero-actions { display: flex; flex-direction: column; gap: 12px; justify-content: flex-start; align-items: flex-start; width: 100%; position: relative; }
+        .pf-hero-actions .pf-btn {
+          font-family: 'Syne', sans-serif;
+          width: 100%;
+          justify-content: center;
+          font-size: 16px;
+          padding: 12px 20px;
+        }
+        .pf-below-hero {
+          position: relative;
+          isolation: isolate;
+        }
+        .pf-below-hero-content {
+          position: relative;
+          z-index: 1;
+        }
 
         /* STATS */
         .pf-stats {
@@ -461,6 +538,37 @@ export default function Portfolio() {
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
+          .pf-hero-layout {
+            grid-template-columns: 1fr;
+            gap: 26px;
+          }
+          .pf-hero-left,
+          .pf-hero-center,
+          .pf-hero-right {
+            grid-column: auto;
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto;
+            justify-self: center;
+            padding-top: 0;
+          }
+          .pf-hero-center { order: 1; }
+          .pf-hero-left { order: 2; }
+          .pf-hero-right { order: 3; }
+          .pf-hero-actions {
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+          }
+          .pf-hero-actions .pf-btn {
+            width: auto;
+            font-size: 14px;
+            padding: 8px 18px;
+          }
+          .pf-hero-bio {
+            margin: 0 auto 34px;
+          }
           .pf-about-grid { grid-template-columns: 1fr; gap: 40px; }
           .pf-grid-2 { grid-template-columns: 1fr; }
           .pf-grid-3 { grid-template-columns: 1fr; }
@@ -494,8 +602,7 @@ export default function Portfolio() {
         }
         .dark .pf-hero-bg {
           background:
-            radial-gradient(ellipse 700px 500px at 50% -80px, rgba(34,197,94,.18) 0%, transparent 70%),
-            radial-gradient(ellipse 400px 300px at 80% 60%, rgba(22,163,74,.10) 0%, transparent 60%),
+            radial-gradient(ellipse 1240px 820px at 50% -130px, rgba(245,158,11,.34) 0%, transparent 84%),
             linear-gradient(180deg, #0a0a0b 0%, #000 100%);
         }
         .dark .pf-nav.on {
@@ -517,12 +624,17 @@ export default function Portfolio() {
         .dark .pf-bio,
         .dark .pf-freelance-cta-text,
         .dark .pf-about-key,
-        .dark .pf-hero-title,
-        .dark .pf-hero-bio,
         .dark .pf-footer-copy,
         .dark .pf-stat-lbl,
         .dark .pf-section-sub {
           color: #a1a1aa;
+        }
+        .dark .pf-hero-title,
+        .dark .pf-hero-bio {
+          color: #fafafa;
+        }
+        .dark .pf-hero-extra {
+          color: #fafafa;
         }
         .dark .pf-nav-links span:hover,
         .dark .pf-footer-link:hover,
@@ -608,17 +720,22 @@ export default function Portfolio() {
           color: #d4d4d8;
           border: 1px solid rgba(255,255,255,.14);
         }
-        .dark .pf-badge {
-          background: rgba(34,197,94,.12);
-          border-color: rgba(34,197,94,.32);
-          color: #86efac;
+        .dark .pf-hero-email { color: #fafafa; }
+        .dark .pf-hero-name-highlight {
+          color: #fafafa;
+          background: transparent;
+        }
+        .dark .pf-hero-image-wrap {
+          box-shadow: none;
+          border-radius: 0;
+          background: transparent;
         }
         .dark .pf-cta {
           background: linear-gradient(180deg, #09090b 0%, #000000 100%);
           border-top: 1px solid rgba(255,255,255,.08);
         }
         .dark .pf-cta::before {
-          background: radial-gradient(ellipse, rgba(34,197,94,.18) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(245,158,11,.14) 0%, transparent 70%);
         }
         .dark .pf-cta-sub { color: rgba(255,255,255,.62); }
       `}</style>
@@ -626,8 +743,7 @@ export default function Portfolio() {
       {/* NAV */}
       <nav className={`pf-nav ${scrolled ? "on" : ""}`}>
         <a href="/" className="pf-logo">
-          <span className="pf-logo-dot" />
-          {PROFILE.name.split(" ")[0]}
+          Aarohi Portfolio
         </a>
         <ul className="pf-nav-links">
           {[["About", "about"], ["Projects", "projects"], ["Contact", "contact"]].map(([l, id]) => (
@@ -659,26 +775,50 @@ export default function Portfolio() {
       {/* HERO */}
       <section id="hero" className="pf-hero">
         <div className="pf-hero-bg" />
-        <div className="pf-badge pf-fade-1">
-          <span className="pf-badge-dot" />
-          {PROFILE.university}
-        </div>
-        <h1 className="pf-hero-name pf-fade-2">{PROFILE.name}</h1>
-        <p className="pf-hero-title pf-fade-3">{PROFILE.title}</p>
-        <p className="pf-hero-bio pf-fade-4">{PROFILE.bio}</p>
-        <div className="pf-hero-actions pf-fade-5">
-          <button className="pf-btn pf-btn-dark" onClick={() => go("projects")}>
-            View Work <ArrowUpRight size={15} />
-          </button>
-          <button className="pf-btn pf-btn-outline" onClick={() => go("contact")}>
-            Get in Touch
-          </button>
-          <a href={PROFILE.resumeUrl} download className="pf-btn pf-btn-outline">
-            <Download size={14} /> Resume
-          </a>
+        <div className="pf-hero-layout">
+          <div className="pf-hero-left">
+            <p className="pf-hero-title pf-fade-2">{PROFILE.title}</p>
+            <p className="pf-hero-bio pf-fade-3">{PROFILE.bio}</p>
+            <p className="pf-hero-extra pf-fade-3">Building practical AI products, scalable web systems, and reliable user-first experiences.</p>
+          </div>
+          <div className="pf-hero-center">
+            <div className="pf-hero-email pf-fade-1">aarohi.bhanuj.ug23@nsut.ac.in</div>
+            <div className="pf-hero-image-wrap pf-fade-1">
+              <img src={PROFILE.heroImage} alt={PROFILE.name} className="pf-hero-image" />
+            </div>
+            <h1 className="pf-hero-name pf-fade-4">
+              <span className="pf-hero-name-highlight">{PROFILE.name}</span>
+            </h1>
+          </div>
+          <div className="pf-hero-right">
+            <div className="pf-hero-actions pf-fade-5">
+              <button className="pf-btn pf-btn-dark" onClick={() => go("projects")}>
+                View Work <ArrowUpRight size={15} />
+              </button>
+              
+              <button className="pf-btn pf-btn-outline"  onClick={() => go("contact")}>
+                Get in Touch
+              </button>
+              <a href={PROFILE.resumeUrl} download className="pf-btn pf-btn-outline">
+                <Download size={14} /> Resume
+              </a>
+              <a href={PROFILE.socials.github} target="_blank" rel="noopener noreferrer" className="pf-btn pf-btn-outline">
+                <Github size={14} /> GitHub
+              </a>
+              <a href={PROFILE.socials.linkedin} target="_blank" rel="noopener noreferrer" className="pf-btn pf-btn-outline">
+                <Linkedin size={14} /> LinkedIn
+              </a>
+              <a href={PROFILE.socials.instagram} target="_blank" rel="noopener noreferrer" className="pf-btn pf-btn-outline">
+                <Instagram size={14} /> Instagram
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
+      <div className="pf-below-hero">
+        <GradientDots opacity={0.3} spacing={18} dotSize={8} duration={24} />
+        <div className="pf-below-hero-content">
       {/* ABOUT */}
       <section id="about">
         <div className="pf-section">
@@ -736,8 +876,9 @@ export default function Portfolio() {
               <h2 className="pf-section-title">Projects</h2>
             </div>
             <div className="pf-tabs">
-              <button className={`pf-tab ${tab==="tech"?"pf-tab-active":"pf-tab-inactive"}`} onClick={() => setTab("tech")}>Engineering</button>
+              
               <button className={`pf-tab ${tab==="freelance"?"pf-tab-active":"pf-tab-inactive"}`} onClick={() => setTab("freelance")}>Freelance</button>
+              <button className={`pf-tab ${tab==="tech"?"pf-tab-active":"pf-tab-inactive"}`} onClick={() => setTab("tech")}>Engineering</button>
             </div>
           </div>
 
@@ -832,8 +973,8 @@ export default function Portfolio() {
           ))}
         </div>
       </footer>
+        </div>
+      </div>
     </div>
   );
 }
-
-

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Aarohi Bhanuj Chowdhary - Software Engineer focused on Full Stack and AI projects, internships, and freelance work.',
   icons: {
-    icon: '/images/profile.jpg',
-    shortcut: '/images/profile.jpg',
-    apple: '/images/profile.jpg',
+    icon: '/images/aigen.png',
+    shortcut: '/images/aigen.png',
+    apple: '/images/aigen.png',
   },
 };
 
